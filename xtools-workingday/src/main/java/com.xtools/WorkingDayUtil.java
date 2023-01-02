@@ -1,6 +1,10 @@
+package com.xtools;
+
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * 工作日计算工具类
@@ -18,19 +22,16 @@ public class WorkingDayUtil {
      * Key： 日期
      * Value 是否是节假日
      */
-    private static Map<String, Boolean> holidays = new HashMap<>;
+    private static final Map<String, Boolean> holidays = new HashMap<String, Boolean>();
     /**
      * 调休日 Map
      * Key： 日期
      * Value 是否是调休日
      */
-    private static Map<String, Boolean> workingDays = new HashMap<>;
+    private static final Map<String, Boolean> workingDays = new HashMap<String, Boolean>();
 
     static {
-        Properties p = new Properties();
-        InputStream is = Thread.currentThread().getContextClassLoader().getSystemResourceAsStream("db.properties");
-        p.load(is);
-        System.out.println(p);
+
     }
 
     /**
