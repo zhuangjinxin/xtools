@@ -34,4 +34,23 @@ public class WorkingDayUtil {
     public static long getDays(LocalDate startDate, LocalDate endDate) {
         return Duration.between(startDate, endDate).get(ChronoUnit.DAYS);
     }
+
+    /**
+     * 判断一个日期是否是工作日
+     *
+     * @param date 指定日期
+     * @return 是不是工作日
+     */
+    public static boolean isWorkingDay(LocalDate date) {
+        return true;
+    }
+
+    /**
+     * 判断今天是否是工作日
+     *
+     * @return 今天是不是工作日
+     */
+    public static boolean isWorkingDay() {
+        return true;
+    }
 }
