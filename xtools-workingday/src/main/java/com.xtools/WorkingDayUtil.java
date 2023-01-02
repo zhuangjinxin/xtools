@@ -14,6 +14,26 @@ public class WorkingDayUtil {
     }
 
     /**
+     * 节假日 Map
+     * Key： 日期
+     * Value 是否是节假日
+     */
+    private static Map<String, Boolean> holidays = new HashMap<>;
+    /**
+     * 调休日 Map
+     * Key： 日期
+     * Value 是否是调休日
+     */
+    private static Map<String, Boolean> workingDays = new HashMap<>;
+
+    static {
+        Properties p = new Properties();
+        InputStream is = Thread.currentThread().getContextClassLoader().getSystemResourceAsStream("db.properties");
+        p.load(is);
+        System.out.println(p);
+    }
+
+    /**
      * 根据 开始日期 + 工作日天数，返回 结束日期
      *
      * @param startDate 开始日期
