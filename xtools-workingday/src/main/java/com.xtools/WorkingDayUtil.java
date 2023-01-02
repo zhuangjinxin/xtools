@@ -38,12 +38,12 @@ public class WorkingDayUtil {
      * @param days      工作日天数
      * @return 结束日期
      */
-    public static LocalDate getEndDate(LocalDate startDate, long days) {
+    public static LocalDate getEndDate(LocalDate startDate, int days) {
         if (days < 0) {
             throw new IllegalArgumentException("输入的工作日天数不合法");
         }
         LocalDate currentDate = startDate;
-        for (long i = days; i > 0; i--) {
+        for (int i = days; i > 0; i--) {
             currentDate = currentDate.plusDays(1);
             if (!isWorkingDay(currentDate)) {
                 i = i + 1;
@@ -59,12 +59,12 @@ public class WorkingDayUtil {
      * @param endDate   结束日期
      * @return 工作日天数
      */
-    public static long getDays(LocalDate startDate, LocalDate endDate) {
+    public static int getDays(LocalDate startDate, LocalDate endDate) {
         if (endDate.isBefore(startDate)) {
             throw new IllegalArgumentException("开始时间晚于结束时间，参数不合法。");
         }
 
-        long days = 0;
+        int days = 0;
         for (LocalDate currentDate = startDate; currentDate.isBefore(endDate); currentDate = currentDate.plusDays(1)) {
             if (isWorkingDay(currentDate)) {
                 days = days + 1;
