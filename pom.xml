@@ -7,23 +7,32 @@
     <packaging>pom</packaging>
 
 
-    <groupId>com.zhuangjinxin</groupId>
+    <groupId>top.zhuangjinxin</groupId>
     <artifactId>xtools</artifactId>
     <version>1.0.0</version>
     <name>xtools</name>
 
     <modules>
         <module>xtools-all</module>
-        <module>xtools-workingday</module>
+        <module>xtools-datetime</module>
+        <module>xtools-message</module>
     </modules>
 
     <properties>
         <project.build.sourceEncoding>utf-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>utf-8</project.reporting.outputEncoding>
         <compile.version>8</compile.version>
+        <junit.version>5.9.1</junit.version>
     </properties>
 
+
     <dependencies>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.9.1</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
