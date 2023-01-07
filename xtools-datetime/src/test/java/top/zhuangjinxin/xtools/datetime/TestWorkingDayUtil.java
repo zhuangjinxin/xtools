@@ -1,4 +1,4 @@
-package top.zhuangjinxin.xtools;
+package top.zhuangjinxin.xtools.datetime;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -11,7 +11,7 @@ public class TestWorkingDayUtil {
     public void test() {
         LocalDate startDate = LocalDate.of(2023, 1, 1);
         LocalDate endDate = WorkingDayUtil.getEndDate(startDate, 7);
-        LocalDate exceptEndDate = LocalDate.of(2023, 1, 8);
+        LocalDate exceptEndDate = LocalDate.of(2023, 1, 10);
         Assertions.assertEquals(endDate, exceptEndDate);
     }
 }
