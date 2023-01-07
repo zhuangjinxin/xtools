@@ -17,4 +17,17 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+    <dependencies>
+        <dependency>
+            <groupId>top.zhuangjinxin</groupId>
+            <artifactId>xtools-datetime</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>top.zhuangjinxin</groupId>
+            <artifactId>xtools-message</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+    </dependencies>
+
 </project>

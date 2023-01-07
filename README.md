@@ -1,3 +1,30 @@
+## 添加依赖
+
+Maven：
+
+```xml
+
+<dependency>
+    <groupId>top.zhuangjinxin</groupId>
+    <artifactId>xtools-all</artifactId>
+    <version>1.0.0</version>
+</dependency>
+```
+
+Gradle：
+
+```groovy
+implementation 'top.zhuangjinxin:xtools-all:1.0.0'
+```
+
+## 模块介绍
+
+| 模块名 | 介绍 |
+|-----------------|-----------------------------|
+| xtools-all | 所有模块的工具集。包含以下所有模块。 |
+| xtools-datetime | 日期时间工具集。包含：工作日计算器等。 |
+| xtools-message | 消息工具集。包含企业微信消息、钉钉消息、飞书消息工具类。 |
+
 ## 工作日计算器 WorkingDayUtil
 
 | 用法                                                             | 作用                      |
