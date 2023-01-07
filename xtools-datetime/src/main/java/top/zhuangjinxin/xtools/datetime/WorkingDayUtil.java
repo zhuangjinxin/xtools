@@ -22,13 +22,14 @@ public class WorkingDayUtil {
      * Key： 日期 yyyy-MM-dd
      * Value 是否是工作日
      */
-    private static final Map<String, Boolean> HOLIDAYS = new HashMap<>();
+    private static final Map<String, Boolean> SPECIAL_DAYS = new HashMap<>();
     /**
      * 日期格式化 yyyy-MM-dd
      */
     public static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
     static {
+        initSpecialDays();
     }
 
     /**
@@ -65,7 +66,7 @@ public class WorkingDayUtil {
         }
 
         int days = 0;
-        for (LocalDate currentDate = startDate; currentDate.isBefore(endDate); currentDate = currentDate.plusDays(1)) {
+        for (LocalDate currentDate = startDate; currentDate.isBefore(endDate) || currentDate.isEqual(endDate); currentDate = currentDate.plusDays(1)) {
             if (isWorkingDay(currentDate)) {
                 days = days + 1;
             }
@@ -83,9 +84,9 @@ public class WorkingDayUtil {
         DayOfWeek dayOfWeek = date.getDayOfWeek();
         String dateString = date.atStartOfDay().format(FORMATTER);
         if (dayOfWeek == DayOfWeek.SATURDAY || dayOfWeek == DayOfWeek.SUNDAY) {
-            return HOLIDAYS.getOrDefault(dateString, false);
+            return SPECIAL_DAYS.getOrDefault(dateString, false);
         } else {
-            return HOLIDAYS.getOrDefault(dateString, true);
+            return SPECIAL_DAYS.getOrDefault(dateString, true);
         }
     }
 
@@ -96,5 +97,45 @@ public class WorkingDayUtil {
      */
     public static boolean isWorkingDay() {
         return isWorkingDay(LocalDate.now());
+    }
+
+    /**
+     * 初始化 节假日
+     */
+    private static void initSpecialDays() {
+        // 2023年 节假日安排
+        SPECIAL_DAYS.put("2022-12-31", false);
+        SPECIAL_DAYS.put("2023-01-01", false);
+        SPECIAL_DAYS.put("2023-01-02", false);
+        SPECIAL_DAYS.put("2023-01-21", false);
+        SPECIAL_DAYS.put("2023-01-22", false);
+        SPECIAL_DAYS.put("2023-01-23", false);
+        SPECIAL_DAYS.put("2023-01-24", false);
+        SPECIAL_DAYS.put("2023-01-25", false);
+        SPECIAL_DAYS.put("2023-01-26", false);
+        SPECIAL_DAYS.put("2023-01-27", false);
+        SPECIAL_DAYS.put("2023-01-28", true);
+        SPECIAL_DAYS.put("2023-01-29", true);
+        SPECIAL_DAYS.put("2023-04-05", false);
+        SPECIAL_DAYS.put("2023-04-23", true);
+        SPECIAL_DAYS.put("2023-04-29", false);
+        SPECIAL_DAYS.put("2023-04-30", false);
+        SPECIAL_DAYS.put("2023-05-01", false);
+        SPECIAL_DAYS.put("2023-05-02", false);
+        SPECIAL_DAYS.put("2023-05-03", false);
+        SPECIAL_DAYS.put("2023-05-06", true);
+        SPECIAL_DAYS.put("2023-06-22", false);
+        SPECIAL_DAYS.put("2023-06-23", false);
+        SPECIAL_DAYS.put("2023-06-24", false);
+        SPECIAL_DAYS.put("2023-09-29", false);
+        SPECIAL_DAYS.put("2023-09-30", false);
+        SPECIAL_DAYS.put("2023-10-01", false);
+        SPECIAL_DAYS.put("2023-10-02", false);
+        SPECIAL_DAYS.put("2023-10-03", false);
+        SPECIAL_DAYS.put("2023-10-04", false);
+        SPECIAL_DAYS.put("2023-10-05", false);
+        SPECIAL_DAYS.put("2023-10-06", false);
+        SPECIAL_DAYS.put("2023-10-07", true);
+        SPECIAL_DAYS.put("2023-10-08", true);
     }
 }
